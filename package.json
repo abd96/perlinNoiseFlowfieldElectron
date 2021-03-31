@@ -1,0 +1,18 @@
+{
+  "name": "ElectronApp",
+  "version": "1.0.0",
+  "author": "abdul",
+  "description": "My Desc",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^12.0.1"
+  },
+  "dependencies": {
+    "p5": "^1.3.0"
+  }
+}
