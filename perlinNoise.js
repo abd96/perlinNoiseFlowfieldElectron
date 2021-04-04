@@ -11,10 +11,10 @@ const perlinNoise = (p) => {
 
     p.setup = () => { 
         p.createCanvas(p.windowWidth, p.windowHeight);
-        cols = p.floor(p.windowWidth/ scl);
+        cols = p.floor(p.windowWidth / scl);
         rows = p.floor(p.windowHeight / scl);
         flowField = new Array(cols * rows);
-        for (var i=0; i<100; i++){
+        for (var i=0; i<400; i++){
 
             particles[i] = new Particle(p);
         }
@@ -26,16 +26,16 @@ const perlinNoise = (p) => {
         for(var y =0; y<rows; y++){
             var xoff = 0;
             for(var x=0; x<cols; x++){
-                var index = x + y * cols ;
+                var index = x + y * cols;
                 flowField[index] = v
-                var angle = p.noise(xoff, yoff, zoff) * p.TWO_PI * 1500;
+                var angle = p.noise(xoff, yoff, zoff) * p.TWO_PI; 
                 var v = p5.Vector.fromAngle(angle);
-                v.setMag(0.5);
+                v.setMag(0.09);
                 p.stroke(0, 50); 
                 p.push();
                 p.translate(x*scl, y*scl);
                 p.rotate(v.heading());
-                //p.line(0,0,scl,0);
+                // p.line(0,0,scl,0);
                 p.pop();
                 xoff += inc;
             }

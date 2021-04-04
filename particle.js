@@ -25,9 +25,8 @@ class Particle{
     show(){
         this.p.stroke(0, 5);
         this.p.strokeWeight(1);
-        this.p.line(this.pos.x,this.pos.y, this.prevPos.x, 
-        this.prevPos.y)
-        this.p.point(this.pos.x, this.pos.y);
+        this.p.line(this.pos.x,this.pos.y, this.prevPos.x, this.prevPos.y)
+        // this.p.point(this.pos.x, this.pos.y);
         this.updatePrev()
     }
     
@@ -63,8 +62,6 @@ class Particle{
         var index = x+y*20;
         var force = vectors[index];
         this.applyForce(force);
-        
     }
-    
     
 }
