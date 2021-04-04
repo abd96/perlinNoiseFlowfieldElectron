@@ -10,7 +10,7 @@ const perlinNoise = (p) => {
     var flowField;
 
     p.setup = () => { 
-        p.createCanvas(p.windowWidth, p.windowHeight);
+        p.createCanvas(p.windowWidth, p.windowHeight, SVG);
         cols = p.floor(p.windowWidth / scl);
         rows = p.floor(p.windowHeight / scl);
         flowField = new Array(cols * rows);

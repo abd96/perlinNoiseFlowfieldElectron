@@ -4,13 +4,14 @@
         <meta charset="UTF-8">
         <title>Perlin Noise</title>
         <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-
-        <script src='./particle.js'></script>
+        
         <script src='./perlinNoise.js'></script>
         <script>
             var p5 = require('p5');
+            var SVG = require('./p5.svg.js');
             var app = new p5(perlinNoise);
         </script>
+        <script src='./particle.js'></script>
         <style>
 			body {
 				margin: 0;
