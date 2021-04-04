@@ -1,8 +1,10 @@
 
 class Particle{
 
-    constructor(p){
+    constructor(p, scl, cols){
         this.p   = p
+        this.scl = scl
+        this.cols = cols
         this.pos = p.createVector(p.random(p.windowWidth), 
         p.random(p.windowHeight));
         this.vel = p5.Vector.random2D();
@@ -57,9 +59,9 @@ class Particle{
     }
 
     follow(vectors) { 
-        var x = this.p.floor(this.pos.x / 20);
-        var y = this.p.floor(this.pos.y / 20);
-        var index = x+y*20;
+        var x = this.p.floor(this.pos.x / this.scl);
+        var y = this.p.floor(this.pos.y / this.scl);
+        var index = x+y* this.cols;
         var force = vectors[index];
         this.applyForce(force);
     }

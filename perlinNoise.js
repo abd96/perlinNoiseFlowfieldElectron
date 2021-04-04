@@ -2,7 +2,7 @@
 
 const perlinNoise = (p) => {
     var inc = 0.1;
-    var scl = 20;
+    var scl = 10;
     var zoff = 0;
     var cols, rows; 
 
@@ -14,9 +14,9 @@ const perlinNoise = (p) => {
         cols = p.floor(p.windowWidth / scl);
         rows = p.floor(p.windowHeight / scl);
         flowField = new Array(cols * rows);
-        for (var i=0; i<400; i++){
+        for (var i=0; i<10000; i++){
 
-            particles[i] = new Particle(p);
+            particles[i] = new Particle(p, scl, cols);
         }
         p.background(255);
     }
@@ -30,7 +30,7 @@ const perlinNoise = (p) => {
                 flowField[index] = v
                 var angle = p.noise(xoff, yoff, zoff) * p.TWO_PI; 
                 var v = p5.Vector.fromAngle(angle);
-                v.setMag(0.09);
+                v.setMag(3);
                 p.stroke(0, 50); 
                 p.push();
                 p.translate(x*scl, y*scl);
@@ -40,11 +40,11 @@ const perlinNoise = (p) => {
                 xoff += inc;
             }
             yoff += inc;
-            // zoff += 0.001;
+            zoff += 0.001;
             for (var i=0; i<particles.length;i++){
                 particles[i].follow(flowField);
-                particles[i].update();
                 particles[i].edges();
+                particles[i].update();
                 particles[i].show();
             }
 
